@@ -6,13 +6,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous"> -->
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <section class="nav-bar">
+            <div class="brand"><h1>GIFY</h1></div>
+            <div class="form-inline">
+                <input class="form-control" id="search-val" type="search" placeholder="Search" aria-label="Search">
+
+                <button class="btn" id="search-btn" type="submit">Search</button>
+            </div>
+
+        </section>
+        <div class="side-bar">
+            <div class="wrapper button-wrapper" id="button-wrapper">
+                <form class="form-inline align-right my-2 my-0 ml-auto">
+                    <input class="form-control mr-sm-2" id="search-val" type="search" placeholder="Search" aria-label="Search">
+
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="gif-body">
+            <div class="wrapper gif-wrapper" id="wrapper">
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <p class="navbar-brand my-auto mr-auto ml-4 title">Giphy Search</p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggleCollapse" aria-controls="toggleCollapse"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -26,22 +54,23 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
             </form>
         </div>
-    </nav>
-    <div class="container-fluid" id="body-wrapper">
+    </nav> -->
+
+    <!-- <div class="container-fluid" id="body-wrapper">
         <section class="row main-form h-100">
             <div class="col-3 bg-danger h-100 left-menu">
-                <div class="button-wrapper" id="button-wrapper">
+                <div class="wrapper button-wrapper" id="button-wrapper">
 
                 </div>
             </div>
             <div class="col-9 bg-secondary h-100 main-body">
-                <div class="wrapper">
+                <div class="wrapper gif-wrapper" id="wrapper">
 
                 </div>
             </div>
 
         </section>
-    </div>
+    </div> -->
 
 
 

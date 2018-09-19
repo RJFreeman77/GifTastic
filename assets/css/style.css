@@ -1,7 +1,13 @@
 body {
-    height: 100%;
+    height: 100vh;
+    margin: 0;
 }
-
+img {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin: 10px;
+}
 .title {
     color: white;
 }
@@ -11,4 +17,37 @@ body {
 }
 .search-btn {
     margin: 2px;
+}
+#body-wrapper {
+    min-height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 70px 100vh;
+    grid-template-areas: 
+    "nav-bar nav-bar nav-bar"
+    "side-bar gif-body gif-body";
+}
+.side-bar {
+    grid-area: side-bar;
+    background-color: darkred;
+}
+.gif-body {
+    grid-area: gif-body;
+    background-color: lightgrey;
+}
+.nav-bar {
+    background-color: slategrey;
+    grid-area: nav-bar;
+}
+.brand {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    grid-area: nav-bar;
+}
+.form-inline {
+    grid-column: 3 / 3;
+    grid-row: 1 / 1;
 }
