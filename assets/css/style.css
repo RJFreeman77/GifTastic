@@ -21,33 +21,15 @@ img {
 #body-wrapper {
     min-height: 100vh;
 }
-
-.container {
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 70px 100vh;
-    grid-template-areas: 
-    "nav-bar nav-bar nav-bar"
-    "side-bar gif-body gif-body";
+#wrapper-row {
+    min-height: 100vh;
 }
-.side-bar {
-    grid-area: side-bar;
-    background-color: darkred;
+#search-return:hover {
+    cursor: pointer;
 }
-.gif-body {
-    grid-area: gif-body;
-    background-color: lightgrey;
+.main-body {
+    min-height: 100vh;
 }
-.nav-bar {
-    background-color: slategrey;
-    grid-area: nav-bar;
-}
-.brand {
-    grid-column: 1 / 1;
-    grid-row: 1 / 1;
-    grid-area: nav-bar;
-}
-.form-inline {
-    grid-column: 3 / 3;
-    grid-row: 1 / 1;
+.click-to-save {
+    font-size: smaller;
 }
