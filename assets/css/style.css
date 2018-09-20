@@ -31,10 +31,23 @@ img {
     position: fixed;
     bottom: 5px;
     left: 20px;
+    width: 14%;
 }
 .main-body {
     min-height: 100vh;
 }
 .click-to-save {
     font-size: smaller;
+}
+
+@media (max-width: 1199.98px) {
+    #delete-button {
+        width: 21%;
+    }
+}
+@media (max-width: 767.98px) {
+    #delete-button {
+        position: initial;
+        float: right;
+    }
 }
