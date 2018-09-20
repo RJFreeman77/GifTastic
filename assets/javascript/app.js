@@ -2,9 +2,16 @@ var API_KEY = "QQx3yAB40lUloE1r1Oa2xgCTYCbXpOwb";
 var topics = ["movies", "music", "dnd", "bmo", "dogs", "no", "cats", "books", "adventuretime", "yes"];
 var buttonWrapperDiv = $("#button-wrapper");
 var gifWrapperMain = $("#wrapper");
-
+var isToggleDelete = false;
 
 $(document).ready(function () {
+    var list = JSON.parse(localStorage.getItem("topicsAry"));
+    if (list) {
+        topics = list;
+    } else {
+        console.log("list is not");
+    }
+    console.log(list);
     runAPI("wow", 10);
     makeButton();
 
@@ -12,19 +19,24 @@ $(document).ready(function () {
         event.preventDefault();
         gifWrapperMain.empty();
         var input = $("#search-val").val().trim();
-
         runAPI(input, 10);
         console.log(input);
-        // topics.push(input);
-        // makeButton();
         $("#search-val").val("");
     });
 
     $(document).on("click", ".search-btn", function () {
-        gifWrapperMain.empty();
-        var dataTerm = $(this).data("term");
-        runAPI(dataTerm, 10);
+        if (isToggleDelete) {
+            var tempIndex = $(this).attr("data-index");
+            console.log([topics, tempIndex]);
+            topics.splice(tempIndex, 1);
+            makeButton();
+        } else {
+            gifWrapperMain.empty();
+            var dataTerm = $(this).attr("data-term");
+            runAPI(dataTerm, 10);
+        }
     });
+
     $(document).on("click", ".gif", function () {
         var self = $(this);
         var state = self.attr("data-state");
@@ -36,6 +48,7 @@ $(document).ready(function () {
             self.attr("data-state", "still");
         }
     });
+
     $("#search-return").on("click", function () {
         var dataTerm = $(this).attr("data-term");
         if (topics.indexOf(dataTerm) < 0) {
@@ -45,10 +58,18 @@ $(document).ready(function () {
         }
     });
 
+    $("#delete-button").on("click", function () {
+        if (isToggleDelete) {
+            $("#delete-button").text("Delete");
+            isToggleDelete = false;
+        } else {
+            $("#delete-button").text("Done");
+            isToggleDelete = true;
+        }
+    });
 });
 
 function runAPI(q, l) {
-    console.log("runAPI()", q, l);
     $("#search-return").text('"' + q + '"').attr("data-term", q);
     checkAry(q)
     var search = q;
@@ -72,16 +93,16 @@ function runAPI(q, l) {
     });
 }
 
-
 function makeButton() {
     buttonWrapperDiv.empty();
     var btnDiv = $("<div>");
     for (var i = 0; i < topics.length; i++) {
         var newBtn = $("<button>");
-        newBtn.addClass("btn search-btn").attr("id", "btn-" + i).attr("data-term", topics[i]).text(topics[i]);
+        newBtn.addClass("btn search-btn").attr("id", "btn-" + i).attr("data-term", topics[i]).attr("data-index", i).text(topics[i]);
         btnDiv.append(newBtn);
     }
     buttonWrapperDiv.append(btnDiv);
+    localStorage.setItem("topicsAry", JSON.stringify(topics));
 }
 
 function checkAry(val) {
@@ -91,3 +112,7 @@ function checkAry(val) {
         $(".click-to-save").show();
     }
 }
+
+
+
+// still need to figure out way to delete stuff from array

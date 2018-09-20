@@ -27,6 +27,11 @@ img {
 #search-return:hover {
     cursor: pointer;
 }
+#delete-button {
+    position: fixed;
+    bottom: 5px;
+    left: 20px;
+}
 .main-body {
     min-height: 100vh;
 }
