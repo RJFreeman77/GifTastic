@@ -9,9 +9,7 @@ $(document).ready(function () {
     if (list) {
         topics = list;
     } else {
-        console.log("list is not");
     }
-    console.log(list);
     runAPI("wow", 10);
     makeButton();
 
@@ -20,7 +18,6 @@ $(document).ready(function () {
         gifWrapperMain.empty();
         var input = $("#search-val").val().trim();
         runAPI(input, 10);
-        console.log(input);
         $("#search-val").val("");
     });
 
@@ -80,7 +77,6 @@ function runAPI(q, l) {
         method: "GET",
     }).then(function (response) {
         var res = response.data;
-        console.log(queryURL);
         var gifWrapperDiv = $("<div>");
         for (var i = 0; i < l; i++) {
             var tempGifDiv = $("<div>");
@@ -113,6 +109,3 @@ function checkAry(val) {
     }
 }
 
-
-
-// still need to figure out way to delete stuff from array
