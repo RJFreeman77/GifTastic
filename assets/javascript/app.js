@@ -74,7 +74,7 @@ function runAPI(q, l) {
     checkAry(q)
     var search = q;
     var limit = l;
-    var queryURL = `http://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=${limit}`
+    var queryURL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${search}&limit=${limit}`
     $.ajax({
         url: queryURL,
         method: "GET",
